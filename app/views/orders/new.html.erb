@@ -15,7 +15,7 @@
       <%= render partial: 'orders/partials/cart/footer', locals: { total: order_total(@cart_products, @product_ids_in_cart) } %>
     </div>
     <%= form_with model: @order, local: true do |form| %>
-      <%= form.submit 'Guardar Orden', class: "btn success-btn" %>
+      <%= form.submit 'Guardar Orden', class: "btn success-btn", id: "save-order-btn" %>
     <% end %>
   <% else %>
     <p>Tu carrito está vacío.</p>

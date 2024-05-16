@@ -1,2 +1,9 @@
 Documentation:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/requests/products_spec.rb'
+    - 'spec/controllers/products_controller_spec.rb'
+    - 'spec/system/orders_spec.rb'
+Style/FrozenStringLiteralComment:
+  Enabled: false

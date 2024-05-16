@@ -8,7 +8,7 @@
       Órdenes
     <% end %>
 
-    <%= link_to new_order_path, class: "nav-link" do %>
+    <%= link_to new_order_path, class: "nav-link shopping-cart" do %>
       <i class="fas fa-shopping-cart"></i>
       Carrito <% if session[:cart].present? && session[:cart].size.positive? %><span class="badge"><%= session[:cart].size %></span><% end %>
     <% end %>
