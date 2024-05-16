@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Órdenes</h1>
+
+  <% @orders.each do |order| %>
+    <%= render partial: 'orders/partials/order_card', locals: { order: order } %>
+  <% end %>
+</div>

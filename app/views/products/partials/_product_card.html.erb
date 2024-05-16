@@ -1,0 +1,19 @@
+<div class="product-card">
+  <div class="product-info">
+    <h2 class="product-name"><%= product.name %></h2>
+    <p class="product-price"><%= number_to_currency(product.price) %></p>
+
+    <p class="product-qty">
+      <% if product_in_cart?(@cart_products_ids, product) %>
+        Cantidad: <%= qty_product_in_cart(@cart_products_ids, product) %>
+      <% end %>
+    </p>
+
+    <div class="btn-container">
+      <%= button_to 'Añadir al Carrito', add_to_cart_product_path(product), method: :post, class: "btn success-btn" %>
+      <% if product_in_cart?(@cart_products_ids, product) %>
+        <%= button_to 'Eliminar productos', remove_from_cart_product_path(product), method: :delete, class: "btn danger-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>

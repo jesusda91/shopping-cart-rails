@@ -1,0 +1,60 @@
+/* Orders */
+.order {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.order .order-title {
+  margin: 0;
+}
+
+.order .order-total {
+  margin: 5px 0;
+}
+
+.order .order-products {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order .order-product {
+  margin-bottom: 5px;
+}
+
+/* Cart */
+.cart {
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.cart-header, .cart-row, .cart-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-header {
+  font-weight: bold;
+}
+
+.cart-column {
+  flex: 1;
+  text-align: center;
+}
+
+.cart-footer {
+  font-weight: bold;
+  border-top: 2px solid #000;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Carrito de Compras</h1>
+
+  <% if @cart_products.any? %>
+    <div class="cart card">
+       <%= render partial: 'orders/partials/cart/header' %>
+      <% @cart_products.each do |product| %>
+        <%= render partial: 'orders/partials/cart/row', locals: {
+          quantity: qty_product_in_cart(@product_ids_in_cart, product),
+          name: product.name,
+          price: product.price,
+          total: qty_product_in_cart(@product_ids_in_cart, product) * product.price
+        } %>
+      <% end %>
+      <%= render partial: 'orders/partials/cart/footer', locals: { total: order_total(@cart_products, @product_ids_in_cart) } %>
+    </div>
+    <%= form_with model: @order, local: true do |form| %>
+      <%= form.submit 'Guardar Orden', class: "btn success-btn" %>
+    <% end %>
+  <% else %>
+    <p>Tu carrito está vacío.</p>
+  <% end %>
+</div>

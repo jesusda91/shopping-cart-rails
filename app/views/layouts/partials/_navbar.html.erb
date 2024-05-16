@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="container">
+    <%= link_to products_path, class: "nav-link" do %>
+      Productos
+    <% end %>
+
+    <%= link_to orders_path, class: "nav-link" do %>
+      Órdenes
+    <% end %>
+
+    <%= link_to new_order_path, class: "nav-link" do %>
+      <i class="fas fa-shopping-cart"></i>
+      Carrito <% if session[:cart].present? && session[:cart].size.positive? %><span class="badge"><%= session[:cart].size %></span><% end %>
+    <% end %>
+  </div>
+</nav>

@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Listado de Productos</h1>
+
+  <% @products.each do |product| %>
+    <%= render partial: 'products/partials/product_card', locals: { product: product } %>
+  <% end %>
+</div>

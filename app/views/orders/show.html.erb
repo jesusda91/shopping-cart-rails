@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Detalles de la Orden #<%= @order.id %></h1>
+
+  <div class="cart card">
+    <h2>Datos de la Orden</h2>
+    <p>Total: <%= number_to_currency(@order.total_price) %></p>
+
+    <%= render partial: 'orders/partials/cart/header' %>
+    <% @order.order_items.each do |item| %>
+      <%= render partial: 'orders/partials/cart/row', locals: {
+        quantity: item.quantity,
+        name: item.product.name,
+        price: item.product.price,
+        total: item.quantity * item.product.price
+      } %>
+    <% end %>
+  </div>
+</div>
