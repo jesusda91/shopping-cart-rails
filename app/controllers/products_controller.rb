@@ -7,20 +7,16 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    cart << @product.id
+    cart_service.add_to_cart(@product.id)
     redirect_to products_path, notice: "#{@product.name} fue añadido al carrito."
   end
 
   def remove_from_cart
-    cart.delete(@product.id)
+    cart_service.remove_from_cart(@product.id)
     redirect_to products_path, alert: "#{@product.name} fue eliminado del carrito."
   end
 
   private
-
-  def cart
-    session[:cart] ||= []
-  end
 
   def set_product
     @product = Product.find(params[:id])

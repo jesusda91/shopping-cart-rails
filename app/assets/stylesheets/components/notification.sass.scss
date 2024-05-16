@@ -9,12 +9,10 @@
   opacity: 0.9;
   z-index: 1000;
   display: none;
-}
-
-.notification.notice {
-  background-color: #5cb85c;
-}
-
-.notification.alert {
-  background-color: #d9534f;
+  &.notice {
+    background-color: #5cb85c;
+  }
+  &.alert {
+    background-color: #d9534f;
+  }
 }

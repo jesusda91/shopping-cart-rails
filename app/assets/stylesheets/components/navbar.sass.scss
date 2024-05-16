@@ -1,0 +1,39 @@
+.navbar {
+  background-color: #333;
+  padding: 10px 0;
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    &:hover {
+      background-color: var(--bg-navbar);
+    }
+  }
+
+  .container {
+    display: flex;
+    .nav-link {
+      .badge {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FF934F;
+        padding: 0.25rem;
+        border-radius: 100%;
+        width: 14px;
+        height: 14px;
+        font-size: 13px;
+        top: -5px;
+        right: -13px;
+      }
+
+      &:last-child {
+        position: relative;
+        margin-left: auto;
+      }
+    }
+  }
+
+}
+

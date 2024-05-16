@@ -1,0 +1,33 @@
+/* Card */
+.product-card {
+  display: inline-block;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .product-qty {
+    min-height: 18px;
+  }
+
+  .product-info {
+    margin-top: 10px;
+  }
+
+  .product-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .product-price {
+    color: var(--color-success);
+    font-size: 16px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

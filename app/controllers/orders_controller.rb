@@ -4,21 +4,14 @@ class OrdersController < ApplicationController
   before_action :find_order, only: %i[show destroy]
 
   def new
-    @order = Order.new
-    @product_ids_in_cart = cart
-    @cart_products = Product.where(id: @product_ids_in_cart.try(:uniq))
+    @order, @product_ids_in_cart, @cart_products = order_service.new_order(cart)
   end
 
   def create
-    @order = Order.new(session_id: session[:session_id])
-    product_quantities = cart.tally
-    cart.try(:uniq).each do |product_id|
-      @order.order_items.build(product_id: product_id, quantity: product_quantities[product_id])
-    end
-
-    if @order.save
-      session[:cart] = []
-      return redirect_to @order, notice: 'Orden fue creada exitosamente.'
+    order = order_service.create_order(cart)
+    if order
+      cart_service.empty_cart
+      return redirect_to order, notice: 'La orden fue creada exitosamente.'
     end
 
     render :new
@@ -27,18 +20,18 @@ class OrdersController < ApplicationController
   def show; end
 
   def index
-    @orders = Order.where(session_id: session[:session_id])
+    @orders = order_service.find_orders
   end
 
   def destroy
-    @order.destroy
+    order_service.delete_order(params[:id])
     redirect_to orders_path, notice: 'Orden fue eliminada exitosamente.'
   end
 
   private
 
-  def cart
-    session[:cart] ||= []
+  def order_service
+    @order_service ||= OrderService.new(session[:session_id])
   end
 
   def find_order
